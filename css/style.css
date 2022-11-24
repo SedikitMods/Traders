@@ -50,15 +50,91 @@ table {
     overflow: hidden;
 }
 
-.start_logo {
-  position: absolute;
-  height: 5vh;
-  width: 100vw;
+.overlay {
+  display: block;
+  position: fixed;
+  z-index: 100;
   background-color: black;
-  color: white;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  opacity: .7;
+}
+
+.start_logo {
+  display: block;
+  position: fixed;
+  top: 30vh;
+  left: 34.5vw;
+  z-index: 1000;
   text-align: center;
+}
+
+.active {
+  display: none;
+}
+
+.startContent {
+  position: absolute;
+  background-color: rgba(165, 42, 42, 0.6);
+  border: 0.4vw solid red;
+  height: 20vw;
+  width: 70vh;
+  border-radius: 1vw;
+  box-sizing: border-box;
+  padding: 0.5vw;
+  text-shadow: 2px 0 2px #000, 0 2px 2px #000, -2px 0 2px #000, 0 -2px 2px #000;
+}
+
+.startH {
+  color: white;
   font-size: 5vh;
-  z-index: 1;
+}
+
+.startBorder {
+  position: relative;
+  margin-top: 1%;
+  width: 105%;
+  left: -2.5%;
+  height: 0.4vw;
+  background: red;
+}
+
+.startText {
+  position: relative;
+  top: 1vh;
+  color: white;
+  font-size: 3vh;
+  text-align: start;
+}
+
+.BtnStart {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#BtnStart {
+  position: relative;
+  border: 0.3vw solid #4463FF;
+  border-radius: 0.5vw;
+  top: 3vh;
+  background: rgba(68, 99, 255, 0.4);
+  height: 6vh;
+  width: 10vw;
+  font-size: 3vh;
+  line-height: 6vh;
+  font-weight: bold;
+  transition: .7s;
+  text-shadow: none;
+}
+
+#BtnStart:hover {
+  cursor: pointer;
+  background: rgb(68, 99, 255);
+  box-shadow: 0 0 15px #4463FF;
+  color: white;
 }
 
 .time {
@@ -84,9 +160,9 @@ table {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 20vh;
+  top: 13vh;
   left: 20vw;
-  background: url("../img/time1.jpg") 0 0 / 130% no-repeat;
+  background: url("../img/time1.jpg") 0 0 / 140% no-repeat;
   -webkit-transform: rotate(-15deg);
   -moz-transform: rotate(-15deg);
   -ms-transform: rotate(-15deg);
@@ -111,9 +187,9 @@ table {
   position: absolute;
   width: 130%;
   height: 130%;
-  top: 32vh;
+  top: 27vh;
   left: -10vw;
-  background: url("../img/time2.jpg") 0 0 / 100% no-repeat;
+  background: url("../img/time2.jpg") 0 0 / 110% no-repeat;
   -webkit-transform: rotate(-15deg);
   -moz-transform: rotate(-15deg);
   -ms-transform: rotate(-15deg);
@@ -163,7 +239,7 @@ table {
 
 .content {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   border: 0.2vw solid #000;
   padding: 1vw 1vw 0 2vw;
   color: white;
@@ -259,8 +335,61 @@ table {
   background-size: 100%;
 }
 
+.circle {
+  position: relative;
+  opacity: 0;
+}
+
+.circle_1 {
+  top: 26vh;
+  left: 52vh;
+  width: 3.5vh;
+  height: 3.5vh;
+  background-color: red;
+  animation: blink 1s linear infinite;
+  border-radius: 1.75vh;
+}
+
+.circle_2 {
+  top: 21.75vh;
+  left: 51.25vh;
+  width: 4.5vh;
+  height: 4.5vh;
+  border: 0.3vh solid red;
+  border-radius: 2.5vh;
+  animation: blink2 1s linear infinite;
+}
+
+.circle_3 {
+  top: 16vh;
+  left: 50.5vh;
+  width: 6vh;
+  height: 6vh;
+  border: 0.3vh solid red;
+  border-radius: 3.5vh;
+  animation: blink3 1s linear infinite;
+}
+
+@keyframes blink {
+  100%{
+      opacity: 1;
+    }
+}
+
+@keyframes blink2 {
+  67%{
+      opacity: 1;
+    }
+}
+
+@keyframes blink3 {
+  33%{
+      opacity: 1;
+    }
+}
+
 .content_3 {
-  top: 25vh;
+  top: 10vh;
   margin: 0 12vw 0 40vw;
   padding: 0 1vw 0 2vw;
   background-color: rgba(0, 0, 0, 0.6);
@@ -269,7 +398,7 @@ table {
 }
 
 .content_4 {
-  top: 30vh;
+  top: 17vh;
   margin: 0 40vw 0 10vw;
   padding: 0 1vw 0 2vw;
   background-color: rgba(0, 0, 0, 0.6);
@@ -300,6 +429,12 @@ table {
   background: url("../img/bg_svitok.png") no-repeat;
   background-size: 100%;
   border: 0;
+}
+
+.quote {
+  text-align: right;
+  font-size: 3vh;
+  font-style: italic;
 }
 
 .slider {
@@ -429,6 +564,7 @@ table {
   color: rgba(255, 255, 255, 0.7);
   font-weight: bold;
   font-size: 3vh;
+  text-shadow: 2px 0 2px #000, 0 2px 2px #000, -2px 0 2px #000, 0 -2px 2px #000;
 }
 
 .endContent {
@@ -490,16 +626,52 @@ table {
   bottom: 12vw;
 }
 
+.border_name_1 {
+  position: relative;
+  background-color: #000;
+  width: 24vw;
+  height: 1vh;
+  border-radius: 0.5vh;
+  top: -25vh;
+}
+
+.description_1 {
+  position: relative;
+  font-size: 4vh;
+  width: 30vw;
+  top: -25vh;
+}
+
 .name_2 {
   position: relative;
-  top: 12vw;
+  top: 0vw;
+}
+
+.border_name_2 {
+  position: relative;
+  background-color: #000;
+  width: 41.5vw;
+  height: 1vh;
+  border-radius: 0.5vh;
+  bottom: -1vh;
+}
+
+.description_2 {
+  position: relative;
+  font-size: 4vh;
+  width: 30vw;
+  top: 2vh;
+}
+
+.margin_line {
+  margin-top: 15vw;
 }
 
 .line {
-  top: calc(426.5vw - 2vh); /* width + margin-left - height */
-  right: calc(429vw - 49vh); /* width - 25vw(bottom) */
+  top: calc(456.5vw - 2vh); /* width + margin-left - height */
+  right: calc(459vw - 49vh); /* width - 25vw(bottom) */
   background-color: blue;
-  width: 429vw;
+  width: 459vw;
   height: 2vh;
   border-radius: 1vh;
 }
@@ -507,43 +679,47 @@ table {
 .info {
   position: relative;
   top: 2.5vh;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
   font-weight: bold;
   line-height: 3vh;
 }
 
 .info_1 {
-  left: 31vw;
+  left: 48vw;
+}
+
+.info_1_1 {
+  left: 41vw;
 }
 
 .info_2 {
   top: -3vh;
-  left: 97vw;
+  left: 112vw;
 }
 
 .info_3 {
   top: -6vh;
-  left: 155vw;
+  left: 170vw;
 }
 
 .info_4 {
   top: -9vh;
-  left: 219vw;
+  left: 234vw;
 }
 
 .info_5 {
   top: -12vh;
-  left: 273vw;
+  left: 288vw;
 }
 
 .info_6 {
   top: -15vh;
-  left: 333vw;
+  left: 348vw;
 }
 
 .info_7 {
   top: -18vh;
-  left: 400vw;
+  left: 415vw;
 }
 
 .square_top {
@@ -586,8 +762,9 @@ table {
   box-sizing: border-box;
   padding: 1vh;
   width: 50vh;
-  height: 31vh;
+  height: 33.2vh;
   font-size: 3vh;
+  line-height: 3vh;
   font-weight: bold;
 }
 
@@ -602,6 +779,7 @@ table {
   width: 53vh;
   height: 31vh;
   font-size: 3vh;
+  line-height: 3vh;
   font-weight: bold;
 }
 
@@ -616,6 +794,7 @@ table {
   width: 53vh;
   height: 25vh;
   font-size: 3vh;
+  line-height: 3vh;
   font-weight: bold;
 }
 
